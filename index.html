@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Signature Barber</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0a0a0d;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* Fundo animado premium */
+body::before{
+content:'';
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 15% 20%, rgba(212,175,55,0.12), transparent 40%),
+radial-gradient(circle at 80% 80%, rgba(255,255,255,0.05), transparent 40%);
+z-index:-1;
+animation:moveBg 12s infinite alternate ease-in-out;
+}
+
+@keyframes moveBg{
+0%{transform:translateY(0);}
+100%{transform:translateY(-40px);}
+}
+
+/* HEADER */
+header{
+position:fixed;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.logo{
+font-weight:800;
+letter-spacing:3px;
+font-size:18px;
+}
+
+.btn-header{
+background:linear-gradient(90deg,#d4af37,#f5e6a0);
+padding:10px 20px;
+border-radius:30px;
+color:#000;
+font-weight:600;
+text-decoration:none;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:0 8%;
+}
+
+.hero-content{
+max-width:800px;
+animation:fadeUp 1.2s ease forwards;
+opacity:0;
+}
+
+@keyframes fadeUp{
+to{opacity:1; transform:translateY(0);}
+from{transform:translateY(40px);}
+}
+
+.hero h1{
+font-size:52px;
+margin-bottom:20px;
+background:linear-gradient(90deg,#fff,#d4af37);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+color:#bbb;
+margin-bottom:30px;
+font-size:18px;
+}
+
+.main-btn{
+display:inline-block;
+padding:18px 40px;
+border-radius:50px;
+background:linear-gradient(90deg,#d4af37,#f5e6a0);
+color:#000;
+font-weight:700;
+text-decoration:none;
+transition:0.3s;
+}
+
+.main-btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 40px rgba(212,175,55,0.6);
+}
+
+/* PROVA SOCIAL */
+.stats{
+display:flex;
+justify-content:center;
+gap:80px;
+padding:80px 8%;
+text-align:center;
+}
+
+.stat h2{
+font-size:42px;
+color:#d4af37;
+}
+
+/* SERVIÇOS */
+.section{
+padding:100px 8%;
+text-align:center;
+}
+
+.section h2{
+font-size:36px;
+margin-bottom:60px;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
+background:rgba(255,255,255,0.04);
+padding:30px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:#d4af37;
+box-shadow:0 0 30px rgba(212,175,55,0.2);
+}
+
+/* OFERTA */
+.offer{
+margin:100px 8%;
+padding:80px;
+border-radius:40px;
+background:linear-gradient(90deg,#d4af37,#f5e6a0);
+color:#000;
+text-align:center;
+}
+
+.offer h2{
+margin-bottom:20px;
+}
+
+/* CONTADOR */
+.countdown{
+font-size:28px;
+margin-top:20px;
+font-weight:700;
+}
+
+/* WHATSAPP FIXO */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 20px;
+border-radius:50px;
+font-weight:600;
+text-decoration:none;
+box-shadow:0 0 25px rgba(37,211,102,0.6);
+}
+
+/* RESPONSIVO */
+@media(max-width:768px){
+.hero h1{
+font-size:36px;
+}
+.stats{
+flex-direction:column;
+gap:40px;
+}
+.offer{
+padding:40px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">BLACK SIGNATURE</div>
+<a href="#agendar" class="btn-header">Agendar</a>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<h1>Mais que um corte. Uma assinatura de estilo.</h1>
+<p>Experiência premium em cortes masculinos com atendimento exclusivo e agendamento direto pelo WhatsApp.</p>
+<a href="https://wa.me/5599999999999?text=Olá,%20vim%20pelo%20site%20e%20quero%20agendar%20meu%20corte." class="main-btn">Agendar Agora</a>
+</div>
+</section>
+
+<section class="stats">
+<div class="stat">
+<h2 id="clientes">0</h2>
+<p>Clientes Satisfeitos</p>
+</div>
+<div class="stat">
+<h2>5★</h2>
+<p>Avaliação Média</p>
+</div>
+<div class="stat">
+<h2>+3 anos</h2>
+<p>Experiência</p>
+</div>
+</section>
+
+<section class="section">
+<h2>Nossos Serviços</h2>
+<div class="services">
+<div class="card">
+<h3>Corte Premium</h3>
+<p>Estilo moderno com acabamento impecável.</p>
+</div>
+<div class="card">
+<h3>Barba Modelada</h3>
+<p>Design profissional e cuidado detalhado.</p>
+</div>
+<div class="card">
+<h3>Combo Executivo</h3>
+<p>Corte + barba + finalização exclusiva.</p>
+</div>
+</div>
+</section>
+
+<section class="offer" id="agendar">
+<h2>🔥 Oferta Especial Para Novos Clientes</h2>
+<p>Primeiro corte com <strong>20% OFF</strong> para moradores do bairro.</p>
+<p>Vagas promocionais encerram em:</p>
+<div class="countdown" id="timer">00:00:00</div>
+<br>
+<a href="https://wa.me/5599999999999?text=Quero%20garantir%20meu%20desconto%20de%2020%25." class="main-btn">Garantir Desconto</a>
+</section>
+
+<footer style="text-align:center;padding:40px;color:#777;">
+© 2026 Black Signature Barber
+</footer>
+
+<a href="https://wa.me/5599999999999?text=Olá,%20quero%20agendar%20um%20horário." class="whatsapp">WhatsApp</a>
+
+<script>
+/* Contador animado clientes */
+let contador = 0;
+let alvo = 1870;
+let el = document.getElementById("clientes");
+
+let intervalo = setInterval(()=>{
+contador += 15;
+el.textContent = contador + "+";
+if(contador >= alvo){
+clearInterval(intervalo);
+}
+},20);
+
+/* Contador regressivo */
+let tempo = 7200; // 2 horas em segundos
+
+setInterval(()=>{
+let horas = Math.floor(tempo / 3600);
+let minutos = Math.floor((tempo % 3600) / 60);
+let segundos = tempo % 60;
+
+document.getElementById("timer").innerHTML =
+(horas<10?"0":"")+horas + ":" +
+(minutos<10?"0":"")+minutos + ":" +
+(segundos<10?"0":"")+segundos;
+
+if(tempo > 0){
+tempo--;
+}
+},1000);
+</script>
+
+</body>
+  </html>
