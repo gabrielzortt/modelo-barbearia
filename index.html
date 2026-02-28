@@ -3,17 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Imperial Barber</title>
+<title>Supreme Barber Club</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
 
 <style>
+:root{
+  --gold:#d4af37;
+  --dark:#0a0a0a;
+  --card:#141414;
+}
+
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  font-family:'Poppins',sans-serif;
-  background:#000;
+  font-family:'Montserrat',sans-serif;
+  background:var(--dark);
   color:#fff;
-  scroll-behavior:smooth;
   overflow-x:hidden;
 }
 
@@ -21,153 +26,173 @@ body{
 header{
   position:fixed;
   width:100%;
-  top:0;
-  z-index:999;
-  backdrop-filter:blur(12px);
-  background:rgba(0,0,0,0.7);
-  transition:0.3s;
-}
-.nav-container{
-  max-width:1200px;
-  margin:auto;
+  padding:25px 8%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(12px);
+  z-index:999;
+  transition:.3s;
 }
+
 .logo{
-  font-weight:800;
+  font-weight:900;
   letter-spacing:3px;
-  color:#d4af37;
+  color:var(--gold);
 }
+
 nav a{
-  margin-left:30px;
+  margin-left:35px;
   text-decoration:none;
   color:#fff;
-  transition:0.3s;
+  font-size:14px;
+  transition:.3s;
 }
+
 nav a:hover{
-  color:#d4af37;
+  color:var(--gold);
 }
 
 /* HERO */
 .hero{
   height:100vh;
-  background:url('https://images.unsplash.com/photo-1621607512022-6aecc4fed814') center/cover fixed;
+  background:linear-gradient(to right,rgba(0,0,0,.85),rgba(0,0,0,.5)),
+  url('https://images.unsplash.com/photo-1621605815971-fbc98d665033') center/cover fixed;
   display:flex;
   align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-}
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.75);
-}
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:800px;
-  animation:fadeUp 1.2s ease forwards;
-}
-.hero h1{
-  font-size:60px;
-  font-weight:800;
-}
-.hero span{
-  color:#d4af37;
-}
-.hero p{
-  margin:20px 0;
-  color:#ccc;
-}
-.btn{
-  display:inline-block;
-  padding:15px 35px;
-  background:#d4af37;
-  color:#000;
-  font-weight:600;
-  border-radius:40px;
-  text-decoration:none;
-  transition:0.3s;
-}
-.btn:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 25px #d4af37;
+  padding:0 8%;
 }
 
-/* SECTION */
-section{
-  padding:100px 20px;
-  max-width:1200px;
-  margin:auto;
+.hero-content{
+  max-width:650px;
+  animation:fadeUp 1.2s ease forwards;
 }
+
+.hero h1{
+  font-size:65px;
+  font-weight:900;
+  line-height:1.1;
+}
+
+.hero span{color:var(--gold)}
+
+.hero p{
+  margin:25px 0;
+  color:#ccc;
+  line-height:1.6;
+}
+
+.btn{
+  display:inline-block;
+  padding:15px 40px;
+  background:var(--gold);
+  color:#000;
+  font-weight:700;
+  text-decoration:none;
+  border-radius:40px;
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 30px var(--gold);
+}
+
+/* SECTIONS */
+.section{
+  padding:120px 8%;
+}
+
 .section-title{
-  text-align:center;
   font-size:40px;
-  margin-bottom:60px;
-  color:#d4af37;
+  font-weight:800;
+  margin-bottom:70px;
+  text-align:center;
+  color:var(--gold);
 }
 
 /* CARDS */
-.cards{
+.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-.card{
-  background:#111;
-  padding:40px;
-  border-radius:20px;
-  text-align:center;
-  transition:0.4s;
-  border:1px solid rgba(212,175,55,0.2);
-}
-.card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 30px rgba(212,175,55,0.4);
-}
-.card h3{
-  margin:20px 0;
-}
-.price{
-  color:#d4af37;
-  font-weight:700;
-  margin-top:10px;
+  gap:40px;
 }
 
-/* SOBRE */
-.sobre{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  align-items:center;
+.card{
+  background:var(--card);
+  padding:50px;
+  border-radius:25px;
+  border:1px solid rgba(212,175,55,.2);
+  transition:.4s;
+  position:relative;
+  overflow:hidden;
 }
-.sobre img{
+
+.card::before{
+  content:"";
+  position:absolute;
+  top:-100%;
+  left:0;
+  width:100%;
+  height:100%;
+  background:linear-gradient(transparent,rgba(212,175,55,.1));
+  transition:.5s;
+}
+
+.card:hover::before{
+  top:0;
+}
+
+.card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 0 40px rgba(212,175,55,.3);
+}
+
+.card h3{margin-bottom:20px}
+
+/* GALERIA */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.gallery img{
   width:100%;
   border-radius:20px;
-}
-.sobre p{
-  color:#ccc;
-  line-height:1.7;
+  transition:.4s;
 }
 
-/* AVALIAÇÕES */
-.review{
-  background:#111;
-  padding:30px;
-  border-radius:20px;
-  margin-bottom:20px;
+.gallery img:hover{
+  transform:scale(1.05);
+}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:#25D366;
+  color:#fff;
+  padding:15px 18px;
+  border-radius:50%;
+  font-size:22px;
+  text-decoration:none;
+  box-shadow:0 0 20px rgba(0,0,0,.5);
+  transition:.3s;
+}
+
+.whatsapp:hover{
+  transform:scale(1.1);
 }
 
 /* FOOTER */
 footer{
+  padding:80px 8%;
+  background:#000;
   text-align:center;
-  padding:40px;
-  background:#111;
-  color:#888;
+  color:#777;
 }
 
 /* ANIMAÇÃO */
@@ -176,10 +201,20 @@ footer{
   to{opacity:1;transform:translateY(0)}
 }
 
+/* SCROLL REVEAL */
+.reveal{
+  opacity:0;
+  transform:translateY(60px);
+  transition:1s;
+}
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
 /* RESPONSIVO */
 @media(max-width:768px){
-  .hero h1{font-size:38px}
-  .sobre{grid-template-columns:1fr}
+  .hero h1{font-size:42px}
   nav{display:none}
 }
 </style>
@@ -188,72 +223,71 @@ footer{
 <body>
 
 <header>
-  <div class="nav-container">
-    <div class="logo">IMPERIAL BARBER</div>
-    <nav>
-      <a href="#servicos">Serviços</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#avaliacoes">Avaliações</a>
-      <a href="#contato">Contato</a>
-    </nav>
-  </div>
+<div class="logo">SUPREME BARBER</div>
+<nav>
+<a href="#">Início</a>
+<a href="#">Serviços</a>
+<a href="#">Galeria</a>
+<a href="#">Contato</a>
+</nav>
 </header>
 
 <section class="hero">
-  <div class="hero-content">
-    <h1>Seu <span>Estilo</span> Começa Aqui</h1>
-    <p>Cortes premium, atendimento exclusivo e experiência de alto padrão.</p>
-    <a href="#" class="btn">Agendar Agora</a>
-  </div>
+<div class="hero-content">
+<h1>Experiência <span>Premium</span> Masculina</h1>
+<p>Mais que um corte. Uma assinatura de estilo e presença.</p>
+<a href="#" class="btn">Agendar Agora</a>
+</div>
 </section>
 
-<section id="servicos">
-  <h2 class="section-title">Nossos Serviços</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Corte Premium</h3>
-      <p>Acabamento impecável e estilo moderno.</p>
-      <div class="price">R$ 50</div>
-    </div>
-    <div class="card">
-      <h3>Barba Completa</h3>
-      <p>Design e cuidado profissional.</p>
-      <div class="price">R$ 40</div>
-    </div>
-    <div class="card">
-      <h3>Combo VIP</h3>
-      <p>Corte + barba + finalização especial.</p>
-      <div class="price">R$ 80</div>
-    </div>
-  </div>
+<section class="section reveal">
+<h2 class="section-title">Nossos Serviços</h2>
+<div class="grid">
+<div class="card">
+<h3>Corte Signature</h3>
+<p>Personalizado com acabamento impecável.</p>
+</div>
+<div class="card">
+<h3>Barba Premium</h3>
+<p>Modelagem profissional + toalha quente.</p>
+</div>
+<div class="card">
+<h3>Combo Elite</h3>
+<p>Corte + barba + finalização especial.</p>
+</div>
+</div>
 </section>
 
-<section id="sobre" class="sobre">
-  <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70">
-  <div>
-    <h2 class="section-title" style="text-align:left">Tradição & Modernidade</h2>
-    <p>Ambiente sofisticado, profissionais experientes e tecnologia para agendamento rápido. Nossa missão é elevar sua autoestima com um visual impecável.</p>
-    <br>
-    <a href="#" class="btn">Conhecer Espaço</a>
-  </div>
+<section class="section reveal">
+<h2 class="section-title">Nosso Espaço</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70">
+<img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a">
+<img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033">
+</div>
 </section>
 
-<section id="avaliacoes">
-  <h2 class="section-title">Avaliações</h2>
-  <div class="review">★★★★★ Melhor barbearia da cidade!</div>
-  <div class="review">★★★★★ Atendimento diferenciado e ambiente top.</div>
-  <div class="review">★★★★★ Experiência premium do início ao fim.</div>
-</section>
-
-<footer id="contato">
-  © 2026 Imperial Barber • Todos os direitos reservados
+<footer>
+© 2026 Supreme Barber • Todos os direitos reservados
 </footer>
+
+<a href="#" class="whatsapp">💬</a>
 
 <script>
 // Navbar sombra ao rolar
 window.addEventListener("scroll",()=>{
   document.querySelector("header").style.boxShadow =
-    window.scrollY>50?"0 5px 20px rgba(0,0,0,0.5)":"none";
+    window.scrollY>50?"0 5px 20px rgba(0,0,0,0.6)":"none";
+});
+
+// Scroll Reveal
+window.addEventListener("scroll",()=>{
+  document.querySelectorAll(".reveal").forEach(el=>{
+    const top=el.getBoundingClientRect().top;
+    if(top<window.innerHeight-100){
+      el.classList.add("active");
+    }
+  });
 });
 </script>
 
